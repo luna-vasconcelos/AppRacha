@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light.green"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="209dp"
         android:layout_height="40dp"
+        android:gravity="center"
         android:text="Racha a conta!"
+        android:textColor="@android:color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588"
-        tools:layout_editor_absoluteX="101dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btFalar"
@@ -47,13 +49,21 @@
         android:id="@+id/edtConta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableTint="#000000"
         android:ems="10"
+        android:foregroundTint="#000000"
         android:hint="Insira o valor da conta"
         android:inputType="number"
+        android:outlineSpotShadowColor="#000000"
+        android:textColor="@color/black"
+        android:textColorHint="#000000"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/editPessoas"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.822" />
 
     <EditText
         android:id="@+id/editPessoas"
@@ -62,6 +72,10 @@
         android:ems="10"
         android:hint="Insira pessoas"
         android:inputType="number"
+        android:outlineSpotShadowColor="#000000"
+        android:textColor="@color/black"
+        android:textColorHint="#000000"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,5 +94,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="462dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="85dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:srcCompat="@mipmap/ic_launcher" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
