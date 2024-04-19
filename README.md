@@ -10,8 +10,8 @@ Projeto para a AT02 - Vamos Rachar da cadeira Programação para dispositivos m�
 - [Contributing](#contributing)
 
 ## Screenshots/Demo
-![Screenshot 1](/images/screenshot1.jpg)
-![Screenshot 2](/images/screenshot2.jpg)
+![Screenshot 1](/images/Screenshot1.jpg)
+![Screenshot 2](/images/Screenshot2.jpg)
 ![Demo GIF](/path/to/demo.gif)
 
 ## Features
