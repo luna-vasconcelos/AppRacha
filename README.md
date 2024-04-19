@@ -10,7 +10,8 @@ Projeto para a AT02 - Vamos Rachar da cadeira Programação para dispositivos m�
 ## Screenshots/Demo
 ![Screenshot 1](/images/Screenshot1.jpeg)
 ![Screenshot 2](/images/Screenshot2.jpg)
-![Demo GIF](/images/Demo-app-racha.mp4)
+
+![Demo](github.com/luna-vasconcelos/AppRacha/blob/main/images/Demo-app-racha.mp4)
 
 ## Features
 - O aplicativo faz divisões do valor pelo número de pessoas
