@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light.green"
-    tools:context=".MainActivity">
+    android:background="#E0F2F1"
+    tools:context=".MainActivity"
+    android:screenOrientation="portrait">
 
     <TextView
         android:id="@+id/textView"
@@ -33,11 +34,13 @@
         app:layout_constraintVertical_bias="0.33" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/shareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
         android:clickable="true"
+        android:onClick="shareResult"
+        android:backgroundTint="#FF4081"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

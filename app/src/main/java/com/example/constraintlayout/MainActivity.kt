@@ -1,5 +1,6 @@
 package com.example.constraintlayout
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -50,12 +51,11 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
 
     override fun afterTextChanged(s: Editable?) {
         Log.d("PDM24", "Depois de mudar")
-        // Calculation is now handled in onFocusChange listeners
+        // O cálculo foi passado para a função calculateResult()
     }
 
-    private fun calculateResult() {
-        val valor: Double
-        val divisor: Double
+    private fun calculateResult(): Double? {
+        var result: Double? = null
         if (edtConta.text.toString().isNotEmpty() && edtPessoas.text.toString().isNotEmpty()) {
             if (edtConta.text.toString() == "0" || edtPessoas.text.toString() == "0") {
                 tts.speak(
@@ -65,23 +65,39 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
                     null
                 )
             } else {
-                valor = edtConta.text.toString().toDouble()
-                divisor = edtPessoas.text.toString().toDouble()
-                val result = valor / divisor
+                val valor = edtConta.text.toString().toDouble()
+                val divisor = edtPessoas.text.toString().toDouble()
+                result = valor / divisor
                 val decimalFormat = DecimalFormat("#.##")
                 val roundedResult = decimalFormat.format(result)
                 tts.speak("O valor para cada ficou: $roundedResult", TextToSpeech.QUEUE_FLUSH, null, null)
             }
         }
+        return result
+    }
+
+    fun shareResult(v: View) {
+        val result = calculateResult()
+        if (result != null) {
+            val shareIntent = Intent().apply {
+                action = Intent.ACTION_SEND
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, "O valor para cada ficou: $result")
+            }
+            startActivity(Intent.createChooser(shareIntent, "Compartilhar via"))
+        }
     }
 
     fun clickFalar(v: View) {
+        val result = calculateResult()
         if (tts.isSpeaking) {
             tts.stop()
         }
         if (ttsSuccess) {
-            Log.d("PDM23", tts.language.toString())
-            tts.speak("Oi Sumido", TextToSpeech.QUEUE_FLUSH, null, null)
+            if (result != null) {
+                Log.d("PDM23", tts.language.toString())
+                tts.speak("O valor para cada ficou: $result", TextToSpeech.QUEUE_FLUSH, null, null)
+            }
         }
     }
 
